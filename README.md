@@ -1,4 +1,4 @@
-# HRM Ecology: AI Ecosystem Digital Twin Runtime
+# Thoth Ecology: AI Ecosystem Digital Twin Runtime
 
 This project specializes the HRM Ecology architecture into a digital-twin world model for forecasting AI ecosystem evolution.
 
