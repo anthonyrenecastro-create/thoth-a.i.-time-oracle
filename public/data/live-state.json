@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-23T03:38:19.883431+00:00",
+  "generatedAt": "2026-11-23T03:43:13.536337+00:00",
   "sources": [
     {
       "id": "openrouter",
       "name": "OpenRouter model catalog",
       "url": "https://openrouter.ai/api/v1/models",
       "status": "ok",
-      "fetchedAt": "2026-11-23T03:38:19.883431+00:00",
-      "detail": "476 models listed with live prices and context windows",
+      "fetchedAt": "2026-11-23T03:43:13.536337+00:00",
+      "detail": "477 models listed with live prices and context windows",
       "feeds": "Frontier + open model twins: names, context capacity, inference cost"
     },
     {
@@ -16,7 +16,7 @@
       "name": "Hugging Face Hub",
       "url": "https://huggingface.co/api/models",
       "status": "ok",
-      "fetchedAt": "2026-11-23T03:38:19.883431+00:00",
+      "fetchedAt": "2026-11-23T03:43:13.536337+00:00",
       "detail": "4 flagship open-weight models with real parameter counts and downloads",
       "feeds": "Open model twins: parameter scale, download momentum"
     }
@@ -130,7 +130,7 @@
     }
   ],
   "aggregates": {
-    "catalogModels": 476,
+    "catalogModels": 477,
     "maxContextTokens": 2000000,
     "medianCatalogBlendedUsdPer1k": 0.0014000000000000002,
     "frontierCount": 6
