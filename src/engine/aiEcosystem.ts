@@ -41,7 +41,7 @@ function makeCapability(level: number, growthRatePerCycle: number) {
   };
 }
 
-function buildCapabilityProfile(base: number): Record<CapabilityDimension, ReturnType<typeof makeCapability>> {
+export function buildCapabilityProfile(base: number): Record<CapabilityDimension, ReturnType<typeof makeCapability>> {
   return {
     language_understanding: makeCapability(base + 0.10, 0.012),
     mathematical_reasoning: makeCapability(base - 0.05, 0.014),
@@ -61,7 +61,7 @@ function buildCapabilityProfile(base: number): Record<CapabilityDimension, Retur
   };
 }
 
-function deriveIndicators(
+export function deriveIndicators(
   aiSystems: Record<string, AISystemTwin>,
   infrastructure: Record<string, InfrastructureTwin>,
   organizations: Record<string, OrganizationTwin>,
@@ -105,7 +105,29 @@ function deriveIndicators(
   };
 }
 
+/**
+ * Live-data seam: when a live ecosystem seed has been registered (built from
+ * a real-data snapshot by src/data/liveState.ts), initial states are cloned
+ * from it instead of the static seed below. The static seed remains the
+ * fallback when no snapshot is available. See docs/live-data-plan.md.
+ */
+let liveSeed: AIEcosystemState | null = null;
+
+export function setLiveEcosystemSeed(state: AIEcosystemState | null): void {
+  liveSeed = state;
+}
+
+export function hasLiveEcosystemSeed(): boolean {
+  return liveSeed !== null;
+}
+
 export function createInitialAIEcosystemState(step = 0): AIEcosystemState {
+  if (liveSeed) {
+    const clone = structuredClone(liveSeed) as AIEcosystemState;
+    clone.initializedAtStep = step;
+    return clone;
+  }
+
   const aiSystems: Record<string, AISystemTwin> = {
     model_frontier_a: {
       id: 'model_frontier_a',

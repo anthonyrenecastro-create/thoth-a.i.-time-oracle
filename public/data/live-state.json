@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-23T03:38:19.883431+00:00",
+  "sources": [
+    {
+      "id": "openrouter",
+      "name": "OpenRouter model catalog",
+      "url": "https://openrouter.ai/api/v1/models",
+      "status": "ok",
+      "fetchedAt": "2026-11-23T03:38:19.883431+00:00",
+      "detail": "476 models listed with live prices and context windows",
+      "feeds": "Frontier + open model twins: names, context capacity, inference cost"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face Hub",
+      "url": "https://huggingface.co/api/models",
+      "status": "ok",
+      "fetchedAt": "2026-11-23T03:38:19.883431+00:00",
+      "detail": "4 flagship open-weight models with real parameter counts and downloads",
+      "feeds": "Open model twins: parameter scale, download momentum"
+    }
+  ],
+  "frontierModels": [
+    {
+      "id": "openai/gpt-5.5-pro",
+      "label": "OpenAI: GPT-5.5 Pro",
+      "provider": "openai",
+      "contextTokens": 1050000,
+      "blendedUsdPer1k": 0.10500000000000001,
+      "promptUsdPer1k": 0.030000000000000002,
+      "completionUsdPer1k": 0.18000000000000002,
+      "created": 1777051896
+    },
+    {
+      "id": "anthropic/claude-opus-4.1",
+      "label": "Anthropic: Claude Opus 4.1",
+      "provider": "anthropic",
+      "contextTokens": 200000,
+      "blendedUsdPer1k": 0.045,
+      "promptUsdPer1k": 0.015000000000000001,
+      "completionUsdPer1k": 0.075,
+      "created": 1754411591
+    },
+    {
+      "id": "qwen/qwen3.8-max-prime",
+      "label": "Qwen: Qwen3.8 Max Prime",
+      "provider": "qwen",
+      "contextTokens": 1000000,
+      "blendedUsdPer1k": 0.008,
+      "promptUsdPer1k": 0.004,
+      "completionUsdPer1k": 0.012,
+      "created": 1790191228
+    },
+    {
+      "id": "mistralai/pixtral-large-2502",
+      "label": "Mistral: Pixtral Large 2502",
+      "provider": "mistralai",
+      "contextTokens": 128000,
+      "blendedUsdPer1k": 0.004,
+      "promptUsdPer1k": 0.002,
+      "completionUsdPer1k": 0.006,
+      "created": 1795135865
+    },
+    {
+      "id": "x-ai/grok-4.7",
+      "label": "SpaceXSI: Grok 4.7",
+      "provider": "x-ai",
+      "contextTokens": 500000,
+      "blendedUsdPer1k": 0.004,
+      "promptUsdPer1k": 0.002,
+      "completionUsdPer1k": 0.006,
+      "created": 1790007541
+    },
+    {
+      "id": "z-ai/glm-5.3-prime",
+      "label": "Z.ai: GLM 5.3 Prime",
+      "provider": "z-ai",
+      "contextTokens": 1000000,
+      "blendedUsdPer1k": 0.00348,
+      "promptUsdPer1k": 0.00168,
+      "completionUsdPer1k": 0.00528,
+      "created": 1790199651
+    }
+  ],
+  "openModels": [
+    {
+      "id": "deepseek-ai/DeepSeek-V3.2",
+      "label": "DeepSeek-V3.2",
+      "provider": "deepseek-ai",
+      "paramsB": 685.355329792,
+      "downloads": 10847830,
+      "likes": 1616,
+      "contextTokens": 163840,
+      "blendedUsdPer1k": 0.00032,
+      "openrouterId": "deepseek/deepseek-v3.2"
+    },
+    {
+      "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "label": "Qwen3-235B-A22B-Instruct-2507",
+      "provider": "Qwen",
+      "paramsB": 235.09363456,
+      "downloads": 50049,
+      "likes": 814,
+      "contextTokens": 128000,
+      "blendedUsdPer1k": 0.001975,
+      "openrouterId": "qwen/qwen3-235b-a22b-thinking-2507"
+    },
+    {
+      "id": "moonshotai/Kimi-K2-Instruct",
+      "label": "Kimi-K2-Instruct",
+      "provider": "moonshotai",
+      "paramsB": 1026.408235864,
+      "downloads": 225698,
+      "likes": 3009,
+      "contextTokens": 262144,
+      "blendedUsdPer1k": 0.0018000000000000002,
+      "openrouterId": "moonshotai/kimi-k2.7-code"
+    },
+    {
+      "id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "label": "Llama-4-Maverick-17B-128E-Instruct",
+      "provider": "meta-llama",
+      "paramsB": 401.583781376,
+      "downloads": 15515,
+      "likes": 528,
+      "contextTokens": 524288,
+      "blendedUsdPer1k": 0.000675,
+      "openrouterId": "meta-llama/llama-4-maverick"
+    }
+  ],
+  "aggregates": {
+    "catalogModels": 476,
+    "maxContextTokens": 2000000,
+    "medianCatalogBlendedUsdPer1k": 0.0014000000000000002,
+    "frontierCount": 6
+  },
+  "provenance": {
+    "live": [
+      "Model names and providers (OpenRouter)",
+      "Context capacity in tokens (OpenRouter)",
+      "Inference cost per 1k tokens, blended prompt/completion (OpenRouter)",
+      "Open-model parameter counts in billions (Hugging Face safetensors totals)",
+      "Open-model download counts (Hugging Face)"
+    ],
+    "modeled": [
+      "Reasoning / tool-use / autonomy scores: a documented composite ranking within the live cohort, not a benchmark result",
+      "Safety controls, hallucination rate, reliability: modeled estimates (no public live feed yet)",
+      "Organization, policy, human-response and risk twins: modeled estimates"
+    ]
+  }
+}

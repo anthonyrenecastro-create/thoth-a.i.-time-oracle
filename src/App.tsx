@@ -3,8 +3,10 @@
  * Main Application Workbench
  */
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { HRMEcologyRuntime } from './engine/runtime';
+import { setLiveEcosystemSeed } from './engine/aiEcosystem';
+import { loadLiveSnapshot, buildLiveEcosystemState, LiveSnapshot } from './data/liveState';
 import { TopologyCanvas } from './components/TopologyCanvas';
 import { CommitInspector } from './components/CommitInspector';
 import { LedgerView } from './components/LedgerView';
@@ -45,7 +47,33 @@ export default function App() {
   const [ledger, setLedger] = useState(runtime.getLedger());
   const [isRunning, setIsRunning] = useState(runtime.getIsRunning());
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'gemini' | 'ecosystem' | 'topology' | 'health' | 'memory' | 'proposals' | 'ledger' | 'python'>('gemini');
+  const [activeTab, setActiveTab] = useState<'gemini' | 'ecosystem' | 'topology' | 'health' | 'memory' | 'proposals' | 'ledger' | 'python'>('ecosystem');
+  const [liveMeta, setLiveMeta] = useState<LiveSnapshot | null>(null);
+  const [liveStatus, setLiveStatus] = useState<'loading' | 'live' | 'seed'>('loading');
+  const liveAppliedRef = useRef(false);
+
+  // Load the live-data snapshot (public/data/live-state.json) once available and
+  // rebuild the ecosystem twins from real data. Falls back to seed data.
+  useEffect(() => {
+    let cancelled = false;
+    loadLiveSnapshot().then(snap => {
+      if (cancelled) return;
+      if (snap) {
+        setLiveEcosystemSeed(buildLiveEcosystemState(snap));
+        setLiveMeta(snap);
+        setLiveStatus('live');
+        if (!liveAppliedRef.current) {
+          liveAppliedRef.current = true;
+          runtime.reset(seed, 12, scenario);
+        }
+      } else {
+        setLiveStatus('seed');
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [runtime]);
   const [selectedStepForLedger, setSelectedStepForLedger] = useState(0);
 
   useEffect(() => {
@@ -110,19 +138,37 @@ export default function App() {
           </div>
           <div>
             <h1 className="text-base font-bold tracking-tight text-white flex items-center gap-2">
-              HRM Ecology
+              Thoth A.I. Time Oracle
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-950 border border-sky-800 text-sky-400">
                 v1.0.0 Runtime
               </span>
             </h1>
             <p className="text-xs text-slate-400">
-              Resilient World-Model Substrate & Interactive Runtime Environment
+              AI ecosystem digital twin on the HRM Ecology substrate
             </p>
           </div>
         </div>
 
         {/* Quick Runtime Metrics */}
         <div className="flex items-center gap-3 text-xs font-mono">
+          {liveStatus === 'live' && liveMeta ? (
+            <div className="bg-emerald-950 px-3 py-1.5 rounded-lg border border-emerald-800 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-emerald-300 font-bold">LIVE DATA</span>
+              <span className="text-emerald-500">as of {new Date(liveMeta.generatedAt).toLocaleDateString()}</span>
+            </div>
+          ) : liveStatus === 'seed' ? (
+            <div className="bg-amber-950 px-3 py-1.5 rounded-lg border border-amber-800 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <span className="text-amber-300 font-bold">SEED DATA</span>
+              <span className="text-amber-500">live snapshot unavailable</span>
+            </div>
+          ) : (
+            <div className="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center gap-2">
+              <span className="text-slate-500">CHECKING DATA…</span>
+            </div>
+          )}
+
           <div className="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center gap-2">
             <span className="text-slate-500">Hash:</span>
             <span className="text-sky-300 font-bold">{worldState.metadata.stateHash}</span>
@@ -276,7 +322,7 @@ export default function App() {
               onSeek={handleSeek}
               onReset={handleReset}
             />
-            <AIEcosystemDashboard state={worldState} />
+            <AIEcosystemDashboard state={worldState} liveSnapshot={liveMeta} />
           </div>
         )}
 
@@ -407,7 +453,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800 bg-slate-900/50 py-4 text-center text-xs text-slate-500">
-        HRM Ecology • Resilient World-Model Substrate • Deterministic & Falsifiable Adaptive Cognition
+        Thoth A.I. Time Oracle • HRM Ecology substrate • Live-data digital twin of the AI ecosystem
       </footer>
     </div>
   );
