@@ -159,7 +159,7 @@ export function GeminiTriPathConsole({ runtime, state, currentLedgerEntry }: Gem
               <Eye className="w-4 h-4" />
             </div>
             <span className="font-semibold text-indigo-300 text-[11px]">Environment / User / Sensors</span>
-            <span className="text-[9px] text-slate-500">Rover / Perturbations / Directives</span>
+            <span className="text-[9px] text-slate-500">Signals / Perturbations / Directives</span>
           </div>
 
           <div className="hidden md:flex items-center justify-center text-slate-600">

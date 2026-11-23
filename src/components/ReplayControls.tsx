@@ -61,7 +61,6 @@ export const ReplayControls: React.FC<ReplayControlsProps> = ({
             className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-sky-500 font-mono"
           >
             <option value="ai_ecosystem">AI Ecosystem Twin</option>
-            <option value="planetary_rover">Planetary Rover</option>
             <option value="digital_twin">Adaptive Digital Twin</option>
             <option value="embodied_cognition">Embodied Substrate</option>
           </select>

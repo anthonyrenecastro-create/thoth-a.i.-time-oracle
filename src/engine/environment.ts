@@ -5,7 +5,7 @@
 
 import { PerceptualObservation, Vector2D } from '../types/hrm';
 
-export type SimulationScenario = 'planetary_rover' | 'digital_twin' | 'embodied_cognition' | 'ai_ecosystem';
+export type SimulationScenario = 'digital_twin' | 'embodied_cognition' | 'ai_ecosystem';
 
 export interface EnvironmentEntity {
   id: string;
@@ -22,7 +22,7 @@ export class EnvironmentSimulator {
   private noiseLevel = 0.05;
   private stepCount = 0;
 
-  constructor(scenario: SimulationScenario = 'planetary_rover') {
+  constructor(scenario: SimulationScenario = 'ai_ecosystem') {
     this.scenario = scenario;
     this.reset();
   }
@@ -59,21 +59,21 @@ export class EnvironmentSimulator {
       ]
       : [
       {
-        id: 'target_alpha',
+        id: 'signal_target',
         type: 'target',
         position: { x: 380, y: 350 },
         velocity: { x: -0.5, y: 0.2 },
         radius: 18,
       },
       {
-        id: 'hazard_radiation',
+        id: 'hazard_instability',
         type: 'hazard',
         position: { x: 220, y: 180 },
         velocity: { x: 0.8, y: -0.4 },
         radius: 25,
       },
       {
-        id: 'obstacle_crater',
+        id: 'obstacle_constraint',
         type: 'obstacle',
         position: { x: 160, y: 310 },
         velocity: { x: 0, y: 0 },
