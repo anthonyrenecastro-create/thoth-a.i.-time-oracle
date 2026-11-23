@@ -28,6 +28,18 @@ The AI specialization adds typed twins for:
 
 Detailed roadmap: `docs/ai-ecosystem-roadmap.md`
 
+## Live Data
+
+The model twins are built from **real data**, refreshed daily by a GitHub
+Action: the OpenRouter model catalog (real model names, context windows and
+prices) and Hugging Face (real open-model parameter counts and downloads).
+The ingestion script (`scripts/ingest_live_data.py`, `npm run ingest`) writes
+a versioned snapshot to `public/data/live-state.json`; the app loads it on
+start and rebuilds the twins from it, labeling every field as measured or
+modeled in the dashboard's Data Sources panel. If no snapshot is available,
+the app falls back to seed estimates and says so. Full design:
+`docs/live-data-plan.md`
+
 ## Run Locally
 
 Prerequisites: Node.js 20+
