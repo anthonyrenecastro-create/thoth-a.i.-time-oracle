@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T11:23:45.824981+00:00",
+  "generatedAt": "2026-11-26T11:22:58.971212+00:00",
   "sources": [
     {
       "id": "openrouter",
       "name": "OpenRouter model catalog",
       "url": "https://openrouter.ai/api/v1/models",
       "status": "ok",
-      "fetchedAt": "2026-11-25T11:23:45.824981+00:00",
-      "detail": "472 models listed with live prices and context windows",
+      "fetchedAt": "2026-11-26T11:22:58.971212+00:00",
+      "detail": "474 models listed with live prices and context windows",
       "feeds": "Frontier + open model twins: names, context capacity, inference cost"
     },
     {
@@ -16,7 +16,7 @@
       "name": "Hugging Face Hub",
       "url": "https://huggingface.co/api/models",
       "status": "ok",
-      "fetchedAt": "2026-11-25T11:23:45.824981+00:00",
+      "fetchedAt": "2026-11-26T11:22:58.971212+00:00",
       "detail": "4 flagship open-weight models with real parameter counts and downloads",
       "feeds": "Open model twins: parameter scale, download momentum"
     }
@@ -89,8 +89,8 @@
       "label": "DeepSeek-V3.2",
       "provider": "deepseek-ai",
       "paramsB": 685.355329792,
-      "downloads": 11349478,
-      "likes": 1618,
+      "downloads": 11561559,
+      "likes": 1621,
       "contextTokens": 163840,
       "blendedUsdPer1k": 0.00032,
       "openrouterId": "deepseek/deepseek-v3.2"
@@ -100,7 +100,7 @@
       "label": "Qwen3-235B-A22B-Instruct-2507",
       "provider": "Qwen",
       "paramsB": 235.09363456,
-      "downloads": 48661,
+      "downloads": 46480,
       "likes": 814,
       "contextTokens": 128000,
       "blendedUsdPer1k": 0.001975,
@@ -111,7 +111,7 @@
       "label": "Kimi-K2-Instruct",
       "provider": "moonshotai",
       "paramsB": 1026.408235864,
-      "downloads": 232698,
+      "downloads": 209455,
       "likes": 3009,
       "contextTokens": 262144,
       "blendedUsdPer1k": 0.0018000000000000002,
@@ -122,17 +122,17 @@
       "label": "Llama-4-Maverick-17B-128E-Instruct",
       "provider": "meta-llama",
       "paramsB": 401.583781376,
-      "downloads": 16671,
-      "likes": 530,
+      "downloads": 17234,
+      "likes": 531,
       "contextTokens": 524288,
       "blendedUsdPer1k": 0.000675,
       "openrouterId": "meta-llama/llama-4-maverick"
     }
   ],
   "aggregates": {
-    "catalogModels": 472,
+    "catalogModels": 474,
     "maxContextTokens": 2000000,
-    "medianCatalogBlendedUsdPer1k": 0.0014000000000000002,
+    "medianCatalogBlendedUsdPer1k": 0.0014,
     "frontierCount": 6
   },
   "provenance": {
