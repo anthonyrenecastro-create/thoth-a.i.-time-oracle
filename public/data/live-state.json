@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T11:23:03.215064+00:00",
+  "generatedAt": "2026-11-28T11:22:39.005972+00:00",
   "sources": [
     {
       "id": "openrouter",
       "name": "OpenRouter model catalog",
       "url": "https://openrouter.ai/api/v1/models",
       "status": "ok",
-      "fetchedAt": "2026-11-27T11:23:03.215064+00:00",
-      "detail": "477 models listed with live prices and context windows",
+      "fetchedAt": "2026-11-28T11:22:39.005972+00:00",
+      "detail": "476 models listed with live prices and context windows",
       "feeds": "Frontier + open model twins: names, context capacity, inference cost"
     },
     {
@@ -16,7 +16,7 @@
       "name": "Hugging Face Hub",
       "url": "https://huggingface.co/api/models",
       "status": "ok",
-      "fetchedAt": "2026-11-27T11:23:03.215064+00:00",
+      "fetchedAt": "2026-11-28T11:22:39.005972+00:00",
       "detail": "4 flagship open-weight models with real parameter counts and downloads",
       "feeds": "Open model twins: parameter scale, download momentum"
     }
@@ -89,7 +89,7 @@
       "label": "DeepSeek-V3.2",
       "provider": "deepseek-ai",
       "paramsB": 685.355329792,
-      "downloads": 11998604,
+      "downloads": 12389583,
       "likes": 1622,
       "contextTokens": 163840,
       "blendedUsdPer1k": 0.00032,
@@ -100,18 +100,18 @@
       "label": "Qwen3-235B-A22B-Instruct-2507",
       "provider": "Qwen",
       "paramsB": 235.09363456,
-      "downloads": 44202,
+      "downloads": 41002,
       "likes": 814,
-      "contextTokens": 128000,
-      "blendedUsdPer1k": 0.001975,
-      "openrouterId": "qwen/qwen3-235b-a22b-thinking-2507"
+      "contextTokens": 262144,
+      "blendedUsdPer1k": 0.00047,
+      "openrouterId": "qwen/qwen3-235b-a22b-2507"
     },
     {
       "id": "moonshotai/Kimi-K2-Instruct",
       "label": "Kimi-K2-Instruct",
       "provider": "moonshotai",
       "paramsB": 1026.408235864,
-      "downloads": 210242,
+      "downloads": 210316,
       "likes": 3009,
       "contextTokens": 262144,
       "blendedUsdPer1k": 0.0018000000000000002,
@@ -122,7 +122,7 @@
       "label": "Llama-4-Maverick-17B-128E-Instruct",
       "provider": "meta-llama",
       "paramsB": 401.583781376,
-      "downloads": 18341,
+      "downloads": 18813,
       "likes": 532,
       "contextTokens": 524288,
       "blendedUsdPer1k": 0.000675,
@@ -130,9 +130,9 @@
     }
   ],
   "aggregates": {
-    "catalogModels": 477,
+    "catalogModels": 476,
     "maxContextTokens": 2000000,
-    "medianCatalogBlendedUsdPer1k": 0.0014,
+    "medianCatalogBlendedUsdPer1k": 0.0013874999999999998,
     "frontierCount": 6
   },
   "provenance": {
